@@ -21,11 +21,19 @@
             // OPEN - type, url/file, async
             xhr.open('GET', 'sample.txt', true);
 
-            xhr.onload = function() {
-                if (this.status == 200) {
-                    console.log(this.responseText);
-                }
+                // using onreadystatechange method
+            xhr.onreadystatechange = function() {
+              if(this.readyState == 4 && this.status == 200){
+                  console.log(this.responseText);
+              }
             };
+            
+                // using onload method
+            // xhr.onload = function() {
+            //     if (this.status == 200) {
+            //         console.log(this.responseText);
+            //     }
+            // };
             
             xhr.send();
         }
@@ -33,3 +41,16 @@
 </body>
 
 </html>
+
+
+<!-- HTTP Statuses-->
+<!-- 200: "OK"-->
+<!-- 403: "FORBIDDEN -->
+<!-- 404: "NOT FOUND"-->
+
+<!-- readyState value-->
+<!-- 0: request not intialized -->
+<!-- 1: server connection established-->
+<!-- 2: request received -->
+<!-- 3: processing request-->
+<!-- 4: request finished and response is ready-->
