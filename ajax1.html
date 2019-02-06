@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meata charset="UTF-8">
+        <meta name="viewport" content="width=device=width, initial-scale=1.0">
+        <meta http-equiv="x-UA-Compatible" content="ie=edge">
+        <tite>Ajax 1 -Text File</tite>
+</head>
+
+<body>
+    <button id="button">Get Text File</button>
+
+    <script>
+        // Create event listener
+        document.getElementById('button').addEventListener("click", loadText);
+
+        function loadText() {
+            // create an XHR object
+            var xhr = new XMLHttpRequest();
+            // OPEN - type, url/file, async
+            xhr.open('GET', 'sample.txt', true);
+
+            xhr.onload = function() {
+                if (this.status == 200) {
+                    console.log(this.responseText);
+                }
+            };
+            
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>
